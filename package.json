@@ -1,0 +1,27 @@
+{
+  "name": "mural-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NathaNNs350/Mural-Node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/NathaNNs350/Mural-Node/issues"
+  },
+  "homepage": "https://github.com/NathaNNs350/Mural-Node#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "knex": "^3.3.0",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^6.0.1"
+  }
+}
