@@ -7,7 +7,7 @@ client: "sqlite3",
 // Onde fica o arquivo do banco
 connection: {
   
-filename: path.resolve(__dirname, "src", "infra", "database", "mural.sqlite")
+filename: path.resolve(__dirname, "api-mural", "src", "infra", "database", "mural.sqlite")
 },
 // Onde ficam os arquivos de migration
 migrations: {
@@ -15,7 +15,7 @@ directory: path.resolve(__dirname, "api-mural", "src", "infra", "database", "mig
 },
 // Onde ficam os arquivos de seed
 seeds: {
-directory: path.resolve(__dirname, "api-mural","src", "infra", "database", "seeds")
+directory: path.resolve(__dirname, "api-mural", "src", "infra", "database", "seeds")
 },
 // Obrigatório no SQLite
 useNullAsDefault: true,
