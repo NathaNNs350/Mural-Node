@@ -3,6 +3,8 @@ const db = require("../infra/database")
 
 const TABELA = "20261005123852_categorias.js"
 
+const TABELASEC = "20261005124142_posts.js"
+
 module.exports = {
     // Lista todas as categorias
     async index() {
@@ -20,22 +22,22 @@ module.exports = {
         return db(TABELA).where({ id }).first()
     },
 
-    // Atualiza uma categoria existente
+    // Atualiza o nome de uma categoria existente
     async update(id, dados) {
-        const linhas = await db(TABELA).where({ id }).update(dados)
-        if (linhas === 0) return null
+        const nome = await db(TABELA).where({ id }).update(dados)
+        if (nome === 0) return null
         return db(TABELA).where({ id }).first()
     },
 
     // Remove uma categoria pelo id
     async delete(id) {
-        const linhas = await db(TABELA).where({ id }).del()
-        return linhas > 0
+        const nome = await db(TABELA).where({ id }).del()
+        return nome > 0
     },
 
     // Conta quantos posts estão associados a uma categoria (usado para regra de negócio ao remover)
     async contarPosts(categoriaId) {
-        const resultado = await db("posts")
+        const resultado = await db(TABELASEC)
             .where({ categoria_id: categoriaId })
             .count("id as total")
             .first()
