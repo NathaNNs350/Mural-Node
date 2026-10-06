@@ -1,3 +1,4 @@
+//Arquivo de serviços da tabela Categorias
 const repositorio = require("../repositories/categorias.repository")
 const db = require("../infra/database")
 const { criarErro } = require("./erros")

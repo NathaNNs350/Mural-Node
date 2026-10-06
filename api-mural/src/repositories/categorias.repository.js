@@ -1,8 +1,8 @@
 // src/repositories/categorias.repository.js
 const db = require("../infra/database")
-
+//Tabela Principal
 const TABELA = "20261005123852_categorias.js"
-
+//Tabela Secundaria (Chave Estrangeira)
 const TABELASEC = "20261005124142_posts.js"
 
 module.exports = {

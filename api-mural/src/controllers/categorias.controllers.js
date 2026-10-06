@@ -2,7 +2,8 @@ const servico = require("../services/categorias.service")
 module.exports = {
     async index(req, res, next) {
         try {
-            // Query strings chegam sempre como texto
+            // QUERY STRINGS CHEGAM SEMPRE COMO TEXTO //
+            // (Number(req.params.id)) faz com que o texto vire número //
             const filtros = {
                 nome: req.query.nome
             }

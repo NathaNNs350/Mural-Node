@@ -1,4 +1,5 @@
-// src/infra/database/seeds/001_dados_iniciais.js
+//Arquivo 1 de Seeds.
+//Seeds usadas para Teste. Não serão usadas na API final.
 exports.seed = async function (knex) {
   // Limpa as tabelas antes de inserir (ordem inversa das dependências)
   await knex("comentarios").del()
@@ -6,6 +7,7 @@ exports.seed = async function (knex) {
   await knex("usuarios").del()
   await knex("categorias").del()
 
+  //Preenchimento da tabela Categorias
   await knex("categorias").insert([
     { id: 1, nome: "Noticia" },
     { id: 2, nome: "Futebol" },
@@ -13,6 +15,7 @@ exports.seed = async function (knex) {
     { id: 4, nome: "Politica" }
   ])
 
+  //Preenchimento da tabela Usuários
   await knex("usuarios").insert([
     {id: 1, nome: "Oswaldo Lima", email: "osvoff69@escola.com"},
     {id: 2, nome: "Ednaldo Pereira", email: "ednaldopereiracomercial@gmail.com"},
@@ -20,6 +23,7 @@ exports.seed = async function (knex) {
     {id: 4, nome: "Rogério Skylab", email: "solange.venturi@uol.com.br"}
   ])
 
+  //Preenchimento da tabela Posts
   await knex("posts").insert([
     {
       id: 1, 
@@ -50,6 +54,7 @@ exports.seed = async function (knex) {
     }
   ])
 
+  //Preenchimento da tabela Comentários
   await knex("comentarios").insert([
     { 
       id: 1, 
