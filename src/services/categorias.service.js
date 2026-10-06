@@ -7,6 +7,7 @@ module.exports = {
     async index(filtros) {
         return repositorio.index(filtros)
     },
+
     async show(id) {
         const categoria = await repositorio.show(id)
         if (!categoria) {
@@ -14,10 +15,12 @@ module.exports = {
         }
         return categoria
     },
+
     async create(dados) {
         await validar(dados)
         return repositorio.create(dados)
     },
+
     async update(id, dados) {
         // O livro precisa existir antes de ser alterado
         const categoria = await repositorio.show(id)
@@ -27,6 +30,7 @@ module.exports = {
         await validar(dados)
         return repositorio.update(id, dados)
     },
+
     async delete(id) {
         const categoria = await repositorio.show(id)
         if (!categoria) {

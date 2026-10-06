@@ -1,0 +1,37 @@
+@baseUrl = http://localhost:3000
+@contentType = application/json
+
+### ==========================================
+### 1. CREATE (Criar um novo post)
+### ==========================================
+POST {{baseUrl}}/api/categorias
+Content-Type: {{contentType}}
+
+{
+  "nome": "Nova Categoria"
+}
+
+### ==========================================
+### 2. READ (Listar todos os posts)
+### ==========================================
+GET {{baseUrl}}/api/categorias
+
+### ==========================================
+### 3. READ (Buscar um post específico - ID 1)
+### ==========================================
+GET {{baseUrl}}/api/categorias/2
+
+### ==========================================
+### 4. UPDATE (Atualizar completamente o post ID 1)
+### ==========================================
+PUT {{baseUrl}}/api/categorias/2
+Content-Type: {{contentType}}
+
+{
+  "nome": "Futeballs"
+}
+
+### ==========================================
+### 5. DELETE (Remover o post ID 1)
+### ==========================================
+DELETE {{baseUrl}}/api/categorias/3

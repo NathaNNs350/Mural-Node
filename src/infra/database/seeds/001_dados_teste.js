@@ -71,4 +71,6 @@ exports.seed = async function (knex) {
       usuario_id: 2
     }
   ])
+
+  console.log("Seeds executadas")
 }

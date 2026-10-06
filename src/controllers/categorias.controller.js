@@ -1,5 +1,7 @@
 const servico = require("../services/categorias.service")
+
 module.exports = {
+
     async index(req, res, next) {
         try {
             // QUERY STRINGS CHEGAM SEMPRE COMO TEXTO //
@@ -13,6 +15,7 @@ module.exports = {
             next(erro)
         }
     },
+
     async show(req, res, next) {
         try {
             const categorias = await servico.show(Number(req.params.id))
@@ -21,6 +24,7 @@ module.exports = {
             next(erro)
         }
     },
+
     async create(req, res, next) {
         try {
             const categorias = await servico.create(req.body)
@@ -29,16 +33,16 @@ module.exports = {
             next(erro)
         }
     },
+
     async update(req, res, next) {
         try {
             const categorias = await servico.update(Number(req.params.id), req.body)
             res.json(categorias)
         } catch (erro) {
             next(erro)
-            13 / 20
-
         }
     },
+
     async delete(req, res, next) {
         try {
             await servico.delete(Number(req.params.id))
