@@ -1,7 +1,13 @@
 //Arquivo de serviços da tabela Categorias
 const repositorio = require("../repositories/categorias.repository")
 const db = require("../infra/database")
-const { criarErro } = require("./erros")
+const { 
+    criarStatus,
+    badRequest,
+    naoEncontrado,
+    conflito,
+    erroInterno    
+} = require("../services/estado")
 
 module.exports = {
     async index(filtros) {
@@ -11,7 +17,7 @@ module.exports = {
     async show(id) {
         const categoria = await repositorio.show(id)
         if (!categoria) {
-            throw criarErro("Categoria não encontrada", 404)
+            throw naoEncontrado()
         }
         return categoria
     },
@@ -22,10 +28,10 @@ module.exports = {
     },
 
     async update(id, dados) {
-        // O livro precisa existir antes de ser alterado
+        // A Categoria precisa existir antes de ser alterado
         const categoria = await repositorio.show(id)
         if (!categoria) {
-            throw criarErro("Categoria não encontrada", 404)
+            throw naoEncontrado()
         }
         await validar(dados)
         return repositorio.update(id, dados)
@@ -34,16 +40,24 @@ module.exports = {
     async delete(id) {
         const categoria = await repositorio.show(id)
         if (!categoria) {
-            throw criarErro("Categoria não encontrada", 404)
+            throw naoEncontrado()
         }
+
+        const contagem = await repositorio.contarPosts(id)
+        if (contagem > 0) {
+            // TODO
+            throw conflito("Deu ruim essa bagaça")
+        }
+
         return repositorio.delete(id)
     }
 }
+
 // --- Função interna: não faz parte da API do serviço ---
 // Validação compartilhada entre create e update
 async function validar(dados) {
     const { nome } = dados
     if (!nome || nome.trim().length < 0) {
-        throw criarErro("O Nome é obrigatório e não pode ser nulo", 400)
+        throw badRequest("O Nome é obrigatório e não pode ser nulo")
     }
 }
