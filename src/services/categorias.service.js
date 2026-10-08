@@ -48,8 +48,6 @@ module.exports = {
             // TODO
             throw conflito("Deu ruim essa bagaça")
         }
-
-        return repositorio.delete(id)
     }
 }
 
@@ -57,7 +55,7 @@ module.exports = {
 // Validação compartilhada entre create e update
 async function validar(dados) {
     const { nome } = dados
-    if (!nome || nome.trim().length < 0) {
+    if (!nome || nome.trim().length === 0) {
         throw badRequest("O Nome é obrigatório e não pode ser nulo")
     }
 }
