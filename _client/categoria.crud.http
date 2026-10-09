@@ -2,7 +2,7 @@
 @contentType = application/json
 
 ### ==========================================
-### 1. CREATE (Criar um novo post)
+### 1. CREATE (Criar um nova categoria)
 ### ==========================================
 POST {{baseUrl}}/api/categorias
 Content-Type: {{contentType}}
@@ -12,17 +12,17 @@ Content-Type: {{contentType}}
 }
 
 ### ==========================================
-### 2. READ (Listar todos os posts)
+### 2. READ (Listar todos as categorias)
 ### ==========================================
 GET {{baseUrl}}/api/categorias
 
 ### ==========================================
-### 3. READ (Buscar um post específico - ID 1)
+### 3. READ (Buscar uma categoria específica - ID 1)
 ### ==========================================
 GET {{baseUrl}}/api/categorias/2
 
 ### ==========================================
-### 4. UPDATE (Atualizar completamente o post ID 1)
+### 4. UPDATE (Atualizar completamente a categoria ID 1)
 ### ==========================================
 PUT {{baseUrl}}/api/categorias/2
 Content-Type: {{contentType}}
@@ -32,6 +32,6 @@ Content-Type: {{contentType}}
 }
 
 ### ==========================================
-### 5. DELETE (Remover o post ID 1)
+### 5. DELETE (Remover a categoria ID 1)
 ### ==========================================
 DELETE {{baseUrl}}/api/categorias/3

@@ -29,8 +29,7 @@ exports.seed = async function (knex) {
       id: 1, 
       titulo: "Lula Fora!", 
       conteudo: "O governo Lula é uma farsa, tudo o que eles estão fazendo é roubar o povo! Lembre da vez que ele disse 'Eu não vou enganar o povo mais uma vez.' Atente-se como ele diz MAIS UMA VEZ! ABRAM OS OLHOS!!!", 
-      publicado: false,
-      criado_em: "", 
+      publicado: false, 
       autor_id: 1, 
       categoria_id: 4
     },
@@ -38,8 +37,7 @@ exports.seed = async function (knex) {
       id: 2, 
       titulo: "Caneta azul", 
       conteudo: "Olha aqui galerinhaaa, essa é a minha nova canetazuull, eu vou dar uma igual para todos os que votarem em mimmm", 
-      publicado: true,
-      criado_em: "", 
+      publicado: true, 
       autor_id: 3, 
       categoria_id: 1
     },
@@ -47,8 +45,7 @@ exports.seed = async function (knex) {
       id: 3, 
       titulo: "+1 Banido hoje", 
       conteudo: "Venho anunciar que tenho banido diversas pessoas mas uma em especifico me deu gosto, so nao vou dizer porque e segredinho", 
-      publicado: true,
-      criado_em: "", 
+      publicado: true, 
       autor_id: 2, 
       categoria_id: 1
     }
@@ -58,15 +55,13 @@ exports.seed = async function (knex) {
   await knex("comentarios").insert([
     { 
       id: 1, 
-      texto: "Parabéns Mr. Blue pen, estou esperando a minha também meu voto ja ta na urna pae", 
-      criado_em: "", 
+      texto: "Parabéns Mr. Blue pen, estou esperando a minha também meu voto ja ta na urna pae",  
       post_id: 2, 
       usuario_id: 3
     },
     { 
       id: 2, 
-      texto: "Sinto orgulho de falar que meu parceiro Manuel Games não está banido, força Canetinha!", 
-      criado_em: "", 
+      texto: "Sinto orgulho de falar que meu parceiro Manuel Games não está banido, força Canetinha!",  
       post_id: 2, 
       usuario_id: 2
     }

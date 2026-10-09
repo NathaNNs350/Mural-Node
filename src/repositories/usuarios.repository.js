@@ -43,7 +43,7 @@ module.exports = {
             .count("id as total")
             .first()
         return resultado ? resultado.total : 0
-    }
+    },
 
     // quantos posts escritos por aquele usuario
     async contarPosts(autorId){

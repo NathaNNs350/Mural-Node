@@ -1,0 +1,57 @@
+@baseUrl = http://localhost:3000
+@contentType = application/json
+
+### ==========================================
+### 1. CREATE (Criar um novo post)
+### ==========================================
+POST {{baseUrl}}/api/posts
+Content-Type: {{contentType}}
+
+{
+  "titulo": "Post sobre Política",
+  "conteudo": "O governo Lula é uma farsa, tudo o que eles estão fazendo é roubar o povo! Lembre da vez que ele disse 'Eu não vou enganar o povo mais uma vez.' Atente-se como ele diz MAIS UMA VEZ! ABRAM OS OLHOS!!!",
+  "autor_id": 1,
+  "categoria_id": 1
+}
+
+### ==========================================
+### 2. READ (Listar todos os posts publicados)
+### ==========================================
+GET {{baseUrl}}/api/posts
+
+### ==========================================
+### 3. READ (Listar rascunhos - posts recém-criados nascem como rascunho)
+### ==========================================
+GET {{baseUrl}}/api/posts/rascunhos
+
+### ==========================================
+### 4. READ (Buscar um post específico - ID 1)
+### ==========================================
+GET {{baseUrl}}/api/posts/1
+
+### ==========================================
+### 5. UPDATE (Atualizar o post ID 1)
+### ==========================================
+PUT {{baseUrl}}/api/posts/1
+Content-Type: {{contentType}}
+
+{
+  "titulo": "Título Atualizado do Post",
+  "conteudo": "Este é um conteúdo atualizado com mais de vinte caracteres para passar na validação.",
+  "categoria_id": 1
+}
+
+### ==========================================
+### 6. PATCH (Publicar o post ID 1)
+### ==========================================
+PATCH {{baseUrl}}/api/posts/1/publicacao
+Content-Type: {{contentType}}
+
+{
+  "publicado": true
+}
+
+### ==========================================
+### 7. DELETE (Remover o post ID 1)
+### ==========================================
+DELETE {{baseUrl}}/api/posts/1

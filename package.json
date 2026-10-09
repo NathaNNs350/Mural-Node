@@ -9,7 +9,6 @@
     "migrate": "knex migrate:latest",
     "rollback": "knex migrate:rollback",
     "seed": "knex seed:run"
-
   },
   "repository": {
     "type": "git",
@@ -24,8 +23,10 @@
   },
   "homepage": "https://github.com/NathaNNs350/Mural-Node#readme",
   "dependencies": {
+    "dotenv": "^18.0.6",
     "express": "^5.2.1",
     "knex": "^3.3.0",
+    "pg": "^8.23.1",
     "sqlite": "^5.1.1",
     "sqlite3": "^6.0.1"
   }
