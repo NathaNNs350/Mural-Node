@@ -38,25 +38,10 @@ module.exports = {
     },
 
     async delete(id) {
-        const usuario = await repositorio.show(id)
-        if (!usuario) {
+        const categoria = await repositorio.show(id)
+        if (!categoria) {
             throw naoEncontrado()
         }
-
-        //consulta a quantidade de posts e comentários em ao mesmo tempo
-        const [contagem, contagem2] = await Promise.all([
-        repositorio.contarPosts(id),
-        repositorio.contarComen(id)
-        ])
-
-        if (contagem > 0) {
-            throw conflito("Não é possível excluir o usuário pois ele possui posts vinculados.")
-        }
-        if (contagem2 > 0) {
-            throw conflito("Não é possível excluir o usuário pois ele possui comentários vinculados.")
-        } 
-
-        return repositorio.delete(id)
     }
 }
 

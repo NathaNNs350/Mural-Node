@@ -18,7 +18,6 @@ module.exports = {
             const filtros = {
                 nome: req.query.nome
             }
-            
             const usuarios = await servico.index(filtros)
             res.status(200).json(usuarios)
         } catch (estado) {
@@ -34,8 +33,8 @@ module.exports = {
                 throw badRequest()
             }
 
-            const categoria = await servico.show(id)
-            return res.status(200).json(categoria)
+            const usuario = await servico.show(id)
+            return res.status(200).json(usuario)
         } catch (estado) {
             next(estado);
         }
@@ -43,8 +42,8 @@ module.exports = {
 
     async create(req, res, next) {
         try {
-            const categorias = await servico.create(req.body)
-            res.status(201).json(categorias)
+            const usuarios = await servico.create(req.body)
+            res.status(201).json(usuarios)
         } catch (estado) {
             next(estado)
         }
@@ -57,8 +56,8 @@ module.exports = {
                 throw badRequest()
             }
             
-            const categorias = await servico.update(id, req.body)
-            res.status(200).json(categorias)
+            const usuarios = await servico.update(id, req.body)
+            res.status(200).json(usuarios)
         } catch (estado) {
             next(estado)
         }
