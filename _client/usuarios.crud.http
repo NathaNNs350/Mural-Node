@@ -1,0 +1,47 @@
+@baseUrl = http://localhost:3000
+@contentType = application/json
+
+### ==========================================
+### 1. CREATE (Cria um usuário)
+### ==========================================
+POST {{baseUrl}}/api/categorias
+Content-Type: {{contentType}}
+
+{
+  "nome": "Nova Categoria"
+}
+
+### ==========================================
+### 2. READ (Lista os usuários)
+### ==========================================
+GET {{baseUrl}}/api/categorias
+
+### ==========================================
+### 3. READ (Mostra um usuário - ID 1)
+### ==========================================
+GET {{baseUrl}}/api/categorias/2
+
+### ==========================================
+### 3. READ (Mostra os comentarios do usuário - ID 1)
+### ==========================================
+
+
+### ==========================================
+### 3. READ (Mostra os posts do usuário - ID 1)
+### ==========================================
+
+
+### ==========================================
+### 4. UPDATE (Atualiza nome ou e-mail - ID 1)
+### ==========================================
+PUT {{baseUrl}}/api/categorias/2
+Content-Type: {{contentType}}
+
+{
+  "nome": "Futeballs"
+}
+
+### ==========================================
+### 5. DELETE (Remove um usuário ID 1)
+### ==========================================
+DELETE {{baseUrl}}/api/categorias/3

@@ -6,6 +6,7 @@ const TABELA2 = "usuarios"
 const TABELASEC = "posts"
 //tabela tercearia (chave estrangeira)
 const TABELATER = "comentarios"
+
 module.exports = {
     // lista todos os usuarios
     async index() {

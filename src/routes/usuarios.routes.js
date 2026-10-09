@@ -11,5 +11,5 @@ rotas.post("/", controller.create)
 rotas.put("/:id", controller.update)
 rotas.delete("/:id", controller.delete)
 rotas.get("/:id/posts", controller.show)
-rotas.get("/:id/posts", controller.show)
+rotas.get("/:id/comentarios", controller.show)
 module.exports = rotas
