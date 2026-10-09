@@ -1,0 +1,17 @@
+@baseUrl = http://localhost:3000
+@contentType = application/json
+
+### ==========================================
+### 1. UPDATE (Atualizar completamente o comentário ID 1)
+### ==========================================
+PUT {{baseUrl}}/api/comentarios/1
+Content-Type: {{contentType}}
+
+{
+  "texto": "Holy shit"
+}
+
+### ==========================================
+### 2. DELETE (Remover o comentário ID 1)
+### ==========================================
+DELETE {{baseUrl}}/api/comentarios/1
