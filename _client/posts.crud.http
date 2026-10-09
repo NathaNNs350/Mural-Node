@@ -2,7 +2,7 @@
 @contentType = application/json
 
 ### ==========================================
-### 1. CREATE (Criar um novo post)
+### 1. CREATE (Criar um novo post - nasce como rascunho)
 ### ==========================================
 POST {{baseUrl}}/api/posts
 Content-Type: {{contentType}}
@@ -20,19 +20,19 @@ Content-Type: {{contentType}}
 GET {{baseUrl}}/api/posts
 
 ### ==========================================
-### 3. READ (Listar rascunhos - posts recém-criados nascem como rascunho)
+### 3. READ (Listar rascunhos)
 ### ==========================================
 GET {{baseUrl}}/api/posts/rascunhos
 
 ### ==========================================
-### 4. READ (Buscar um post específico - ID 1)
+### 4. READ (Buscar um post específico por ID)
 ### ==========================================
-GET {{baseUrl}}/api/posts/1
+GET {{baseUrl}}/api/posts/2
 
 ### ==========================================
-### 5. UPDATE (Atualizar o post ID 1)
+### 5. UPDATE (Atualizar o post por ID)
 ### ==========================================
-PUT {{baseUrl}}/api/posts/1
+PUT {{baseUrl}}/api/posts/3
 Content-Type: {{contentType}}
 
 {
@@ -42,9 +42,9 @@ Content-Type: {{contentType}}
 }
 
 ### ==========================================
-### 6. PATCH (Publicar o post ID 1)
+### 6. PATCH (Publicar ou voltar post para rascunho)
 ### ==========================================
-PATCH {{baseUrl}}/api/posts/1/publicacao
+PATCH {{baseUrl}}/api/posts/13/publicacao
 Content-Type: {{contentType}}
 
 {
@@ -52,6 +52,22 @@ Content-Type: {{contentType}}
 }
 
 ### ==========================================
-### 7. DELETE (Remover o post ID 1)
+### 7. READ (Listar os comentários de um post)
 ### ==========================================
-DELETE {{baseUrl}}/api/posts/1
+GET {{baseUrl}}/api/posts/2/comentarios
+
+### ==========================================
+### 8. CREATE (Comentar em um post publicado - Retorna 201)
+### ==========================================
+POST {{baseUrl}}/api/posts/2/comentarios
+Content-Type: {{contentType}}
+
+{
+  "texto": "Excelente publicação!2",
+  "usuario_id": 1
+}
+
+### ==========================================
+### 9. DELETE (Remover um post por ID)
+### ==========================================
+DELETE {{baseUrl}}/api/posts/13

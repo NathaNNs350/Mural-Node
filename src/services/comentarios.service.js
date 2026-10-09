@@ -1,38 +1,32 @@
-//Arquivo de serviços da tabela Categorias
 const repositorio = require("../repositories/comentarios.repository")
-const db = require("../infra/database")
 const { 
-    criarStatus,
     badRequest,
-    naoEncontrado,
-    conflito,
-    erroInterno    
-} = require("../services/estado")
+    naoEncontrado
+} = require("./estado")
 
 module.exports = {
     async update(id, dados) {
-        // A Categoria precisa existir antes de ser alterado
-        const categoria = await repositorio.show(id)
-        if (!categoria) {
-            throw naoEncontrado()
+        const comentario = await repositorio.show(id)
+        if (!comentario) {
+            throw naoEncontrado("Comentário não encontrado")
         }
         await validar(dados)
         return repositorio.update(id, dados)
     },
 
     async delete(id) {
-        const categoria = await repositorio.show(id)
-        if (!categoria) {
-            throw naoEncontrado()
+        const comentario = await repositorio.show(id)
+        if (!comentario) {
+            throw naoEncontrado("Comentário não encontrado")
         }
+        return repositorio.delete(id)
     }
 }
 
-// --- Função interna: não faz parte da API do serviço ---
-// Validação compartilhada entre create e update
+// Validação compartilhada
 async function validar(dados) {
     const { texto } = dados
-    if (!texto || texto.trim().length === 0) {
-        throw badRequest("O Campo de Texto está vazio. Por favor, escreva algo")
+    if (!texto || texto.trim().length < 3) {
+        throw badRequest("O texto do comentário precisa ter no mínimo 3 caracteres")
     }
 }

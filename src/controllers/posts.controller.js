@@ -1,17 +1,9 @@
 const servico = require("../services/posts.service")
-
-const {
-    badRequest
-} = require("../services/estado")
+const { badRequest } = require("../services/estado")
 
 module.exports = {
-
-    // QUERY STRINGS CHEGAM SEMPRE COMO TEXTO //
-    // (Number(req.params.id)) faz com que o texto vire número //
-
     async index(req, res, next) {
         try {
-            // Trata e converte os filtros vindos na query string (?categoria=...&autor=...&pagina=...)
             const filtros = {
                 categoriaId: req.query.categoria ? Number(req.query.categoria) : undefined,
                 autorId: req.query.autor ? Number(req.query.autor) : undefined,
@@ -109,6 +101,34 @@ module.exports = {
 
             await servico.delete(id)
             res.status(204).send()
+        } catch (estado) {
+            next(estado)
+        }
+    },
+
+    async listarComentarios(req, res, next) {
+        try {
+            const id = Number(req.params.id)
+            if (isNaN(id) || id <= 0) {
+                throw badRequest("ID inválido")
+            }
+
+            const comentarios = await servico.listarComentarios(id)
+            res.status(200).json(comentarios)
+        } catch (estado) {
+            next(estado)
+        }
+    },
+
+    async criarComentario(req, res, next) {
+        try {
+            const id = Number(req.params.id)
+            if (isNaN(id) || id <= 0) {
+                throw badRequest("ID inválido")
+            }
+
+            const comentario = await servico.criarComentario(id, req.body)
+            res.status(201).json(comentario)
         } catch (estado) {
             next(estado)
         }

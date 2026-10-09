@@ -1,4 +1,5 @@
 //Arquivo de serviços da tabela usuarios
+const comentariosRepository = require("../repositories/comentarios.repository")
 const repositorio = require("../repositories/usuarios.repository")
 const db = require("../infra/database")
 const { 
