@@ -20,22 +20,22 @@ GET {{baseUrl}}/api/usuarios
 ### ==========================================
 ### 3. READ (Mostra um usuário - ID 1)
 ### ==========================================
-GET {{baseUrl}}/api/usuarios/3
+GET {{baseUrl}}/api/usuarios/1
 
 ### ==========================================
-### 3. READ (Mostra os comentarios do usuário - ID 1)
+### 4. READ (Mostra os comentarios de um usuário - ID 1)
 ### ==========================================
-
-
-### ==========================================
-### 3. READ (Mostra os posts do usuário - ID 1)
-### ==========================================
-
+GET {{baseUrl}}/api/usuarios/1/comentarios
 
 ### ==========================================
-### 4. UPDATE (Atualiza nome ou e-mail - ID 1)
+### 5. READ (Mostra os posts de um usuário - ID 1)
 ### ==========================================
-PUT {{baseUrl}}/api/usuarios/2
+GET {{baseUrl}}/api/usuarios/1/posts
+
+### ==========================================
+### 6. UPDATE (Atualiza nome e/ou e-mail - ID 1)
+### ==========================================
+PUT {{baseUrl}}/api/usuarios/1
 Content-Type: {{contentType}}
 
 {
@@ -46,4 +46,4 @@ Content-Type: {{contentType}}
 ### ==========================================
 ### 5. DELETE (Remove um usuário ID 1)
 ### ==========================================
-DELETE {{baseUrl}}/api/usuarios/3
+DELETE {{baseUrl}}/api/usuarios/1
